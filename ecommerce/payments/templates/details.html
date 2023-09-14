@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Pedido: {{ payment.pedido }}
+{% endblock %}
+
+{% block content %}
+<h1>Pedido: {{ payment.pedido }}</h1>
+
+<p>Comprador: {{ payment.phone }}</p>
+<p>Data da compra: {{ payment.date }}</p>
+<p>Item: {{ payment.item }}</p>
+<p>Quantidade comprada do item {{ payment.item }}: {{ payment.quantidade }}</p>
+<p>Forma de Pagamento: {{ payment.forma_pagamento }} </p>
+
+<p>Back to <a href="/payments">Payments</a></p>
+
+{% block content %}

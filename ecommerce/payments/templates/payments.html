@@ -1,0 +1,14 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Lista de todos os pedidos
+{% endblock %}
+
+{% block content %}
+<h1> Lista de pedidos </h1>
+<ul>
+  {% for payment in all_payments %}
+    <li><a href="details/{{ all_payments.id }}"> {{ payment.pedido }} </a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
