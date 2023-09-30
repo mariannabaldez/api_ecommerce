@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'payments',
 ]
 
+# Instalei a biblioteca whitenoise para lidar com arquivos statics
+# enquando DEBUG = False
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -66,6 +69,15 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATIC_ROOT = BASE_DIR / 'productionfiles'
+
+STATIC_URL = 'static/'
+
+#Add this in your settings.py file:
+STATICFILES_DIRS = [
+    BASE_DIR / 'staticfiles'
 ]
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
@@ -112,6 +124,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Para criar pasta e coletar e colocar todos os
+# arquivos estáticos do seu projeto nesta pasta
+# temos o comando python manage.py collectstatic
+STATIC_ROOT = BASE_DIR / 'productionfiles'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

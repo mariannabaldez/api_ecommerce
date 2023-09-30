@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Payment
 
+
 def payments(request):
     all_payments = Payment.objects.all().values()
     template = loader.get_template('payments.html')
@@ -12,7 +13,9 @@ def payments(request):
     return HttpResponse(template.render(context, request))
 
 def details(request, id):
-  order = Payment.objects.get(id=id)
+  order = Payment.objects.get(pedido='pedido'
+    ).order_by('-data'
+    ) #order_by('-...') ordena em ordem decrescente
   template = loader.get_template('details.html')
   context = {
     'payment': order,

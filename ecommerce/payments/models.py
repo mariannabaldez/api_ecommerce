@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Payment(models.Model):
-    id = models.IntegerField(primary_key=True)
     pedido = models.CharField(max_length=255)
     comprador = models.CharField(max_length=255)
     item = models.CharField(max_length=255)
@@ -16,3 +15,6 @@ class Payment(models.Model):
         ]
     )
     data = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Pedido #{self.pedido}"
